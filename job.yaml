@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: .
+command: python "--trainingdata ${{ inputs.training_data }}"
+inputs:
+  training_data:
+    type: uri_file
+    path: har70plus/combined_file.csv
+environment: azureml://registries/azureml/environments/sklearn-1.1/versions/14
+compute: azureml:cw2-compute
+experiment_name: cw2-workspace
+description: Practical3 demo
